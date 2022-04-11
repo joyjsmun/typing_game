@@ -3,11 +3,14 @@ import React,{useState} from "react"
 function App() {
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
-    
-    function countWord(event){
-       setCount((text.split(' ').length))
+
+
+    function countWord(){
+      const firstFilterWord = text.trim().split(" ")
+      const secondFilterWord = firstFilterWord.filter(word => word !== "")
+      setCount(secondFilterWord.length)
     }
-    
+
     
     function handleChange(e) {
       const {value} = e.target
