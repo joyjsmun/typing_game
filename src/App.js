@@ -4,6 +4,24 @@ function App() {
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
     const [timeRemain, setTimeRemain] = useState(5)
+    const [startGame,setStartGame] = useState(false)
+
+
+   useEffect(()=> {
+    if(startGame === true && timeRemain > 0 ){
+      setTimeout(() => {
+        setTimeRemain(prev => prev -1 )
+      }, 1000);
+    }
+
+  },[timeRemain])
+   
+
+
+    function gameHandler(){
+      setStartGame(prev => !prev)
+      console.log(startGame)
+    }
 
     function countWord(){
       const firstFilterWord = text.trim().split(" ")
@@ -17,12 +35,6 @@ function App() {
         setText(value)
     }
 
-    useEffect(() => {
-      if(timeRemain > 0){
-        setTimeout(()=> setTimeRemain(prev => prev -1),1000)
-      }
-    },[timeRemain])
-    
     
     return (
         <div>
@@ -31,7 +43,7 @@ function App() {
             {text}
             </textarea>
             <h4>Time reminaing:{timeRemain}</h4>
-            <button onClick={countWord}>Start</button>
+            <button onClick={gameHandler}>Start</button>
             <h1>Word count: {count}</h1>
         </div>
     )
