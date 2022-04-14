@@ -7,20 +7,24 @@ function App() {
     const [startGame,setStartGame] = useState(false)
 
 
-   useEffect(()=> {
-    if(startGame === true && timeRemain > 0 ){
-      setTimeout(() => {
-        setTimeRemain(prev => prev -1 )
-      }, 1000);
-    }
+  //  useEffect(()=> {
+  //   if(startGame === true && timeRemain > 0 ){
+  //     setTimeout(() => {
+  //       setTimeRemain(prev => prev -1 )
+  //     }, 1000);
+  //   }
 
-  },[timeRemain])
+  // },[timeRemain])
    
 
 
     function gameHandler(){
-      setStartGame(prev => !prev)
-      console.log(startGame)
+     setStartGame(prev => !prev)
+     if(timeRemain > 0) {
+       setTimeout(() => {setTimeRemain(prev => prev -1)},1000)
+     }else if(timeRemain < 0){
+       setStartGame(prev => !prev)
+     }
     }
 
     function countWord(){
