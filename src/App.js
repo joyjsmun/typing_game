@@ -3,7 +3,7 @@ import React,{useEffect, useState} from "react"
 function App() {
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
-    const [timeRemain, setTimeRemain] = useState(5)
+    const [timeRemain, setTimeRemain] = useState(10)
     const [startGame,setStartGame] = useState(false)
 
 
@@ -15,15 +15,16 @@ function App() {
       }, 1000);
     }else if(timeRemain === 0){
       setStartGame(false)
+      setCount(countWord(text))
     }
 
   },[timeRemain,startGame])
    
 
-    function countWord(){
+    function countWord(text){
       const firstFilterWord = text.trim().split(" ")
-      const secondFilterWord = firstFilterWord.filter(word => word !== "")
-      setCount(secondFilterWord.length)
+      return firstFilterWord.filter(word => word !== "").length
+      
     }
 
     
