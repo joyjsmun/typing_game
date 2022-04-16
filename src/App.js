@@ -51,7 +51,7 @@ function App() {
     return (
         <div>
             <h1>How fast do you type?</h1>
-            <textarea value={text} onChange={handleChange}>
+            <textarea value={text} onChange={handleChange} disabled={!startGame}>
             {text}
             </textarea>
             <h3>Time reminaing:{timeRemain}</h3>
