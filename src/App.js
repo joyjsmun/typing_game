@@ -3,8 +3,9 @@ import React,{useEffect, useState} from "react"
 function App() {
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
-    const [timeRemain, setTimeRemain] = useState(10)
+    const [timeRemain, setTimeRemain] = useState(5)
     const [startGame,setStartGame] = useState(false)
+    
 
 
    useEffect(()=> {
@@ -28,6 +29,14 @@ function App() {
     }
 
     
+    function startClock(){
+      setStartGame(true)
+      setTimeRemain(5)
+      setCount(0)
+      setText("")
+    }
+
+
     function handleChange(e) {
       const {value} = e.target
         setText(value)
@@ -41,7 +50,7 @@ function App() {
             {text}
             </textarea>
             <h3>Time reminaing:{timeRemain}</h3>
-            <button onClick={()=> setStartGame(true)}>Start</button>
+            <button onClick={startClock}>Start</button>
             <h1>Word count: {count}</h1>
         </div>
     )
