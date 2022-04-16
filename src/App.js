@@ -1,9 +1,10 @@
 import React,{useEffect, useState} from "react"
 
 function App() {
+    const COUNTING_TIME = 5
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
-    const [timeRemain, setTimeRemain] = useState(5)
+    const [timeRemain, setTimeRemain] = useState(COUNTING_TIME)
     const [startGame,setStartGame] = useState(false)
     
 
@@ -15,8 +16,7 @@ function App() {
         countWord()
       }, 1000);
     }else if(timeRemain === 0){
-      setStartGame(false)
-      setCount(countWord(text))
+      endGame()
     }
 
   },[timeRemain,startGame])
@@ -31,9 +31,14 @@ function App() {
     
     function startClock(){
       setStartGame(true)
-      setTimeRemain(5)
+      setTimeRemain(COUNTING_TIME)
       setCount(0)
       setText("")
+    }
+    
+    function endGame(){
+      setStartGame(false)
+      setCount(countWord(text))
     }
 
 
@@ -50,7 +55,7 @@ function App() {
             {text}
             </textarea>
             <h3>Time reminaing:{timeRemain}</h3>
-            <button onClick={startClock}>Start</button>
+            <button disabled={startGame}  onClick={startClock}>Start</button>
             <h1>Word count: {count}</h1>
         </div>
     )
