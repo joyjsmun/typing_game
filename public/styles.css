@@ -17,7 +17,12 @@ body {
     font-size: 15px;
     letter-spacing: 1px;
 }
+button:disabled{
+    cursor: not-allowed;
+}
+
  button {
+
     font-family: 'Press Start 2P', cursive;
     display: block;
     margin: 0 auto;
@@ -46,5 +51,5 @@ textarea {
 
 
 textarea:disabled{
-    background-color: rgb(21, 47, 2);
+    background-color: rgb(100, 101, 99);
 }
