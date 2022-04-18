@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react"
+import React,{useEffect, useState,useRef} from "react"
 
 function App() {
     const COUNTING_TIME = 5
@@ -6,6 +6,7 @@ function App() {
     const [count, setCount] = useState(0)
     const [timeRemain, setTimeRemain] = useState(COUNTING_TIME)
     const [startGame,setStartGame] = useState(false)
+    const textBoxRef = useRef(null)
     
 
 
@@ -34,6 +35,8 @@ function App() {
       setTimeRemain(COUNTING_TIME)
       setCount(0)
       setText("")
+      textBoxRef.current.disabled = false
+      textBoxRef.current.focus()
     }
     
     function endGame(){
@@ -51,7 +54,7 @@ function App() {
     return (
         <div>
             <h1>How fast do you type?</h1>
-            <textarea value={text} onChange={handleChange} disabled={!startGame}>
+            <textarea ref={textBoxRef} value={text} onChange={handleChange} disabled={!startGame}>
             {text}
             </textarea>
             <h3>Time reminaing:{timeRemain}</h3>
