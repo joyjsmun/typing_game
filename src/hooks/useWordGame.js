@@ -1,10 +1,9 @@
 import { useState,useEffect,useRef } from "react";
 
-function useWordGame(){
-    const COUNTING_TIME = 5
+function useWordGame(counting_time=10){
     const [text,setText] = useState("")
     const [count, setCount] = useState(0)
-    const [timeRemain, setTimeRemain] = useState(COUNTING_TIME)
+    const [timeRemain, setTimeRemain] = useState(counting_time)
     const [startGame,setStartGame] = useState(false)
     const textBoxRef = useRef(null)
     
@@ -32,7 +31,7 @@ function useWordGame(){
     
     function startClock(){
       setStartGame(true)
-      setTimeRemain(COUNTING_TIME)
+      setTimeRemain(counting_time)
       setCount(0)
       setText("")
       textBoxRef.current.disabled()

@@ -1,9 +1,9 @@
 import React from "react"
-import useWordGame from "./useWordGame"
+import useWordGame from "./hooks/useWordGame"
 
 function App() {
 
-  const {textBoxRef,text,handleChange,startGame,timeRemain,startClock,count} = useWordGame()
+  const {textBoxRef,text,handleChange,startGame,timeRemain,startClock,count} = useWordGame(7)
     
     return (
         <div>
