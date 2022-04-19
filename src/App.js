@@ -1,11 +1,13 @@
 import React,{useEffect, useState,useRef} from "react"
+import useTextArea from "./useTextArea"
+import useTimeRemain from "./useTimeRemain"
 
 function App() {
-    const COUNTING_TIME = 5
-    const [text,setText] = useState("")
+ 
+    const {text,setText,startGame,setStartGame,handleChange} = useTextArea()
+    const {timeRemain, setTimeRemain,COUNTING_TIME} = useTimeRemain()
+
     const [count, setCount] = useState(0)
-    const [timeRemain, setTimeRemain] = useState(COUNTING_TIME)
-    const [startGame,setStartGame] = useState(false)
     const textBoxRef = useRef(null)
     
 
@@ -45,12 +47,6 @@ function App() {
     }
 
 
-    function handleChange(e) {
-      const {value} = e.target
-        setText(value)
-    }
-
-    
     return (
         <div>
             <h1>How fast do you type?</h1>
