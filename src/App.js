@@ -3,7 +3,7 @@ import useWordGame from "./hooks/useWordGame"
 
 function App() {
 
-  const {textBoxRef,text,handleChange,startGame,timeRemain,startClock,count} = useWordGame(7)
+  const {textBoxRef,text,handleChange,startGame,timeRemain,startClock,count} = useWordGame()
     
     return (
         <div>
