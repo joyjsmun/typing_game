@@ -6,6 +6,7 @@ function App() {
   const {textBoxRef,text,handleChange,startGame,timeRemain,startClock,count} = useWordGame()
     
     return (
+        <div className="wrapper">
         <div>
             <h1>How fast do you type?</h1>
             <textarea ref={textBoxRef} value={text} onChange={handleChange} disabled={!startGame}>
@@ -14,6 +15,7 @@ function App() {
             <h3>Time reminaing:{timeRemain}</h3>
             <button disabled={startGame}  onClick={startClock}>Start</button>
             <h1>Word count: {count}</h1>
+        </div>
         </div>
     )
 }

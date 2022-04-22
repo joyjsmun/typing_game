@@ -12,6 +12,10 @@ body {
     font-weight: 400;
 }
 
+.wrapper{
+    display: flex;
+}
+
 .button {
     font-weight: 700;
     font-size: 15px;
@@ -32,6 +36,8 @@ button:disabled{
     padding: 10px 20px;
     text-transform: uppercase;
 }
+
+
 
 h1 {
     font-size: 20px;
