@@ -7,7 +7,7 @@ function App() {
     
     return (
         <div className="wrapper">
-        <div>
+        <div className="main">
             <h1>How fast do you type?</h1>
             <textarea ref={textBoxRef} value={text} onChange={handleChange} disabled={!startGame}>
             {text}
